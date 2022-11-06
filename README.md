@@ -1,7 +1,8 @@
 # cozo-lib-java
 
-A Clojure library designed to ... well, that part is up to you.
+Java bindings for [CozoDb](https://github.com/cozodb/cozo).
 
-## Usage
+Artefacts are on [Clojars](https://clojars.org/com.github.zh217/cozo-lib-java). 
 
-FIXME
+This project only uses Clojure for packaging, there is no Clojure dependency in code.
+If you use clojure, please use [cozo-clj](https://github.com/cozodb/cozo-clj) instead.

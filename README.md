@@ -55,3 +55,10 @@ is happening. The download only happens once for each version.
 
 In case a pre-compiled native library is not available for your system,
 you will get an error when you import `CozoDb`.
+
+## Compilation of the native library
+
+You need to build the dynamic library for Java from the [Cozo main repo](https://github.com/cozodb/cozo/blob/main/BUILDING.md).
+After that, copy the dynamic library to `~/.cozo_java_native_lib/` so that this package can find it.
+You may need to rename your dynamic library: you can see what name is required from the message this package
+prints when it attempts to download from the release page.

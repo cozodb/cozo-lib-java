@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.zip.GZIPInputStream;
 
 public class CozoDb {
-    private final static String VERSION = "0.1.4";
+    private final static String VERSION = "0.1.6";
 
     private static native int openDb(String path);
 

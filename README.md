@@ -27,7 +27,7 @@ If you use clojure, please use [cozo-clj](https://github.com/cozodb/cozo-clj) in
 
 ## Usage
 
-Import `org.cozodb.CozoDb` and
+Import `org.cozodb.CozoJavaBridge` and
 ```java
 // Create and open
 CozoDb db = new CozoDb("_test_db");

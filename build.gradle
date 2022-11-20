@@ -1,0 +1,91 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'signing'
+}
+
+group 'io.github.cozodb'
+archivesBaseName = "cozo-java"
+version '0.1.7'
+
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+javadoc {
+    if(JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+}
+
+publishing {
+    publications {
+
+        mavenJava(MavenPublication) {
+
+            groupId = 'io.github.cozodb'
+            artifactId = 'cozo_java'
+            version = '0.1.7'
+            from components.java
+
+            pom {
+                name = 'cozo_java'
+                description = 'Java wrapper for CozoDB'
+                url = 'https://github.com/cozodb/cozo-lib-java'
+                inceptionYear = '2022'
+
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'zh217'
+                        name = 'Ziyang Hu'
+                        email = 'hu.ziyang@cantab.net'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git:github.com/cozodb/cozo-lib-java.git'
+                    developerConnection = 'scm:git:https://github.com/cozodb/cozo-lib-java.git'
+                    url = 'https://github.com/cozodb/cozo-lib-java.git'
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "OSSRH"
+            url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            credentials {
+                username = findProperty('ossrhUsername')
+                password = findProperty('ossrhPassword')
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+
+test {
+    useJUnitPlatform()
+}

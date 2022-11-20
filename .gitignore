@@ -29,7 +29,7 @@ pom.xml.asc
 
 .idea/
 _test_db
-gradle.properties### Gradle template
+### Gradle template
 .gradle
 **/build/
 !src/**/build/
@@ -48,3 +48,4 @@ gradle-app.setting
 
 build/
 gradle/
+gradle.properties

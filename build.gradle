@@ -6,7 +6,7 @@ plugins {
 
 group 'io.github.cozodb'
 archivesBaseName = "cozo-java"
-version '0.1.7'
+version '0.2.1'
 
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
@@ -16,6 +16,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.sharegov:mjson:1.4.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
@@ -38,7 +39,7 @@ publishing {
 
             groupId = 'io.github.cozodb'
             artifactId = 'cozo_java'
-            version = '0.1.7'
+            version = '0.2.1'
             from components.java
 
             pom {

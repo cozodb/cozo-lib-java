@@ -12,6 +12,7 @@ import java.util.Map;
  * This class uses `mjson.Json` to process data to and from the database.
  * If you want something else, you should use the `CozoJavaBridge` class instead,
  * where everything is in strings.
+ *
  * @see CozoJavaBridge
  */
 public class CozoDb {
@@ -57,7 +58,7 @@ public class CozoDb {
             this.indices = new HashMap<>();
             if (fields != null) {
                 for (int i = 0; i < fields.size(); i++) {
-                    var field = fields.get(i);
+                    String field = fields.get(i);
                     this.indices.put(field, i);
                 }
             }
@@ -180,19 +181,19 @@ public class CozoDb {
         String res = this.bridge.query(script, params.toString());
         Json retVal = Json.read(res);
         if (retVal.at("ok").asBoolean()) {
-            var headersJ = retVal.at("headers");
+            Json headersJ = retVal.at("headers");
             List<String> fields = null;
 
             if (headersJ != null && !headersJ.isNull()) {
                 fields = new ArrayList<>();
-                for (var header : headersJ.asJsonList()) {
+                for (Json header : headersJ.asJsonList()) {
                     fields.add(header.asString());
                 }
             }
 
             RelationHeader headers = new RelationHeader(fields);
 
-            var rows = retVal.at("rows").asJsonList();
+            List<Json> rows = retVal.at("rows").asJsonList();
             List<RelationRow> ret = new ArrayList<>();
             for (Json val : rows) {
                 ret.add(new RelationRow(headers, val.asJsonList()));
@@ -212,25 +213,12 @@ public class CozoDb {
      * @throws CozoException if any errors are encountered
      */
     public Json exportRelations(List<String> relations) throws CozoException {
-        return this.exportRelations(relations, false);
-    }
-
-    /**
-     * Export several relations
-     *
-     * @param relations: names of the relations to export
-     * @param asObjects: changes the output JSON to use objects (maps)
-     * @return the exported data in JSON
-     * @throws CozoException if any errors are encountered
-     */
-    public Json exportRelations(List<String> relations, boolean asObjects) throws CozoException {
         Json rels = Json.array();
         for (String s : relations) {
             rels.add(s);
         }
         Json args = Json.object(
-                "relations", rels,
-                "as_objects", asObjects
+                "relations", rels
         );
         Json res = Json.read(bridge.exportRelations(args.toString()));
         if (res.at("ok").asBoolean()) {
@@ -313,18 +301,21 @@ public class CozoDb {
     }
 
     /**
-     * @hidden
      * @param args
+     * @hidden
      */
     public static void main(String[] args) {
-        var db = new CozoDb();
+        CozoDb db = new CozoDb();
 
         try {
             System.out.println(db.run("?[] <- [[1,2,3]]"));
 
             db.run("?[a, b, c] <- [[1,2,3]]; :replace s {a, b, c}");
 
-            System.out.println(db.exportRelations(List.of("s")));
+            List<String> l = new ArrayList<>();
+            l.add("s");
+
+            System.out.println(db.exportRelations(l));
 
             db.importRelations(Json.read("{\"s\": [{\"a\": 5, \"b\": 6, \"c\": 8}]}"));
 

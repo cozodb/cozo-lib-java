@@ -1,6 +1,8 @@
 # cozo-lib-java
 
-Java bindings for [CozoDb](https://github.com/cozodb/cozo).
+[![java](https://img.shields.io/maven-central/v/io.github.cozodb/cozo_java)](https://mvnrepository.com/artifact/io.github.cozodb/cozo_java)
+
+Java bindings for [CozoDB](https://github.com/cozodb/cozo).
 
 This document describes how to set up Cozo for use in Java.
 To learn how to use CozoDB (CozoScript), follow
@@ -8,11 +10,17 @@ the [tutorial](https://github.com/cozodb/cozo-docs/blob/main/tutorial/tutorial.i
 first and then read the [manual](https://cozodb.github.io/current/manual/). You can run all the queries
 described in the tutorial with an in-browser DB [here](https://cozodb.github.io/wasm-demo/).
 
-If you are using Clojure, you can use ..., which provides a nicer wrapper in Clojure.
+If you are using Clojure, you should use [this](https://github.com/cozodb/cozo-clj), which provides a nicer wrapper in Clojure.
+
+If you are on Android, [this](https://github.com/cozodb/cozo-android) is what you want.
 
 ## Install
 
-Artefacts are on maven central.
+Artefacts are on [maven central](https://mvnrepository.com/artifact/io.github.cozodb/cozo_java):
+
+```groovy
+implementation 'io.github.cozodb:cozo_java:0.2.2'
+```
 
 ## Usage
 

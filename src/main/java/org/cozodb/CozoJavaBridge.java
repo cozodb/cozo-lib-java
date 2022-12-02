@@ -26,7 +26,7 @@ import java.util.zip.GZIPInputStream;
  * @see CozoDb
  */
 public class CozoJavaBridge {
-    private final static String VERSION = "0.2.1";
+    private final static String VERSION = "0.2.2";
 
     private static native int openDb(String engine, String path, String options);
 
@@ -159,7 +159,7 @@ public class CozoJavaBridge {
     }
 
     /**
-     * @see CozoDb#exportRelations(List, boolean)
+     * @see CozoDb#exportRelations(List)
      * @param desc
      * @return
      */

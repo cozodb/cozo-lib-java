@@ -239,6 +239,8 @@ public class CozoDb {
     /**
      * Import data into the database. The relevant relations must exist
      * in the database beforehand.
+     * Note that triggers are _not_ run for the relations, if any exists.
+     * If you need to activate triggers, use queries with parameters.
      *
      * @param payload: in the format returned by `exportRelations`
      * @throws CozoException if any errors are encountered
@@ -285,7 +287,9 @@ public class CozoDb {
     }
 
     /**
-     * Import data into the database, from a backup
+     * Import data into the database, from a backup.
+     * Note that triggers are _not_ run for the relations, if any exists.
+     * If you need to activate triggers, use queries with parameters.
      *
      * @param path:      path to the backup file
      * @param relations: relations to import, these must exist in the database beforehand

@@ -19,7 +19,7 @@ If you are on Android, [this](https://github.com/cozodb/cozo-android) is what yo
 Artefacts are on [maven central](https://mvnrepository.com/artifact/io.github.cozodb/cozo_java):
 
 ```groovy
-implementation 'io.github.cozodb:cozo_java:0.2.2'
+implementation 'io.github.cozodb:cozo_java:0.3.0'
 ```
 
 ## Usage

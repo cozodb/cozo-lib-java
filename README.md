@@ -5,13 +5,11 @@
 Java bindings for [CozoDB](https://www.cozodb.org).
 
 This document describes how to set up Cozo for use in Java.
-To learn how to use CozoDB (CozoScript), follow
-the [tutorial](https://docs.cozodb.org/en/latest/tutorial.html). You can run all the queries
-described in the tutorial with an in-browser DB [here](https://www.cozodb.org/wasm-demo/).
+To learn how to use CozoDB (CozoScript), read the [docs](https://docs.cozodb.org/en/latest/index.html).
 
 If you are using Clojure, you should use [this](https://github.com/cozodb/cozo-clj), which provides a nicer wrapper in Clojure.
 
-If you are on Android, [this](https://github.com/cozodb/cozo-android) is what you want.
+If you are on Android, [this](https://github.com/cozodb/cozo-lib-android) is what you want.
 
 ## Install
 
@@ -62,8 +60,4 @@ is very wasteful.
 
 ## Compile the native library
 
-You need to build the dynamic library for Java from
-the [Cozo main repo](https://github.com/cozodb/cozo/blob/main/cozo-lib-java).
-After that, copy the dynamic library to `~/.cozo_java_native_lib/` so that this package can find it.
-You may need to rename your dynamic library: you can see what name is required from the message this package
-prints when it attempts to download from the release page.
+See [here](https://github.com/cozodb/cozo/blob/main/cozo-lib-java).

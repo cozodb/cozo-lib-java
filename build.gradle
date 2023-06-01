@@ -6,7 +6,7 @@ plugins {
 
 group 'io.github.cozodb'
 archivesBaseName = "cozo-java"
-version '0.7.1'
+version '0.7.2'
 
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
@@ -39,7 +39,7 @@ publishing {
 
             groupId = 'io.github.cozodb'
             artifactId = 'cozo_java'
-            version = '0.7.1'
+            version = '0.7.2'
             from components.java
 
             pom {

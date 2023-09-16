@@ -15,7 +15,7 @@ Android 用户请移步 [这里](https://github.com/cozodb/cozo-lib-android/blob
 库可从 [maven central](https://mvnrepository.com/artifact/io.github.cozodb/cozo_java) 下载：
 
 ```groovy
-implementation 'io.github.cozodb:cozo_java:0.7.2'
+implementation 'io.github.cozodb:cozo_java:0.7.5'
 ```
 
 ## 使用
